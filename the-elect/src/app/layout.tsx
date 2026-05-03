@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/components/Navbar";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { ElectionChatbot } from "@/components/ElectionChatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <main className="flex-grow pt-20">
             {children}
           </main>
+          <ElectionChatbot />
         </LanguageProvider>
       </body>
     </html>

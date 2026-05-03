@@ -8,7 +8,7 @@ A Progressive Web App (PWA) built for **Challenge 2: Election Assistant** — em
 
 **Challenge 2 — Election Assistant.**
 
-The Elect is an interactive election readiness platform designed to help first-time and underserved voters navigate the voting process with confidence. It provides ID requirement lookup, polling location discovery, a virtual voting simulator, and multilingual accessibility — all within an installable, offline-first Progressive Web App.
+The Elect is an interactive election readiness platform designed to help first-time and underserved voters navigate the voting process with confidence. It provides ID requirement lookup, polling location discovery, a virtual voting simulator, an AI-powered election education chatbot, and multilingual accessibility — all within an installable, offline-first Progressive Web App.
 
 ---
 
@@ -27,6 +27,7 @@ The Elect is built on **Next.js (App Router)** with **TypeScript** and **Tailwin
 | Internationalization   | Custom i18n via `translations.json`           |
 | Offline Support        | Service Worker with stale-while-revalidate    |
 | Accessibility          | SpeechSynthesis API, keyboard navigation      |
+| AI Assistant           | Google Gemini API (election education)        |
 | Assistant Integration  | Android App Actions via `shortcuts.xml`       |
 
 ### Offline-First Service Worker
@@ -41,6 +42,17 @@ The custom Service Worker (`public/sw.js`) implements a **stale-while-revalidate
 
 Global language state is managed entirely through React Context (`LanguageContext`), eliminating the need for Redux, Zustand, or any external state library. Language toggling between English, Spanish, and Hindi is instantaneous with no page reload.
 
+### Security
+
+Security headers are configured in `next.config.ts` for all routes:
+
+- `X-Content-Type-Options: nosniff` — Prevents MIME-type sniffing
+- `X-Frame-Options: DENY` — Prevents clickjacking
+- `Referrer-Policy: strict-origin-when-cross-origin` — Controls referrer information
+- `Permissions-Policy` — Restricts camera, microphone, and geolocation access
+- API input sanitization with length limits on the `/api/chat` endpoint
+- All API keys stored in `.env.local` (gitignored, never committed)
+
 ---
 
 ## How the Solution Works
@@ -54,6 +66,14 @@ A state-driven wizard form that walks users through a mock voting experience:
 3. **Step 3** — Review all selections before submitting.
 
 The entire flow is keyboard-navigable and uses semantic HTML radio inputs for accessibility.
+
+### AI Election Education Chatbot (Google Gemini)
+
+A floating chatbot widget available on every page, powered by the **Google Gemini API**:
+
+- Users can ask plain-language questions about voting, elections, registration, and civic engagement.
+- The AI is constrained by a system prompt to only respond to election-related topics, ensuring safe and responsible use.
+- Graceful fallback messaging when no API key is configured.
 
 ### Internationalization (i18n)
 
@@ -79,6 +99,14 @@ An interactive range slider representing voter turnout percentage. As the slider
 
 ## Google Services Integration
 
+### Google Gemini API — Election Education Chatbot
+
+The Elect integrates the **Google Gemini API** (`gemini-2.0-flash` model) to provide a real-time, AI-powered election education assistant:
+
+- **API Route**: `src/app/api/chat/route.ts` — A Next.js server-side API route that proxies user questions to the Gemini API with a constrained system prompt.
+- **Security**: User input is sanitized (trimmed, length-limited to 500 characters). The API key is stored server-side in `.env.local` and never exposed to the client.
+- **Fallback**: If no API key is configured, the chatbot displays a helpful setup message instead of crashing.
+
 ### Voice Assistant Mapping (Google Assistant)
 
 The Elect implements **URL-based deep linking** for Google Assistant voice commands:
@@ -88,7 +116,7 @@ The Elect implements **URL-based deep linking** for Google Assistant voice comma
 | "Hey Google, open The Elect Simulation"   | `/sim`       | Virtual Voting Sim     |
 | "Hey Google, open The Elect ID Check"     | `/id-check`  | Voter Prep Dashboard   |
 
-The intent mapping is defined in `public/shortcuts.xml`, following the Android App Actions `shortcuts.xml` schema. Each shortcut binds a `capability` (`actions.intent.OPEN_APP_FEATURE`) to a specific deep link URL.
+The intent mapping is defined in `public/shortcuts.xml`, following the Android App Actions `shortcuts.xml` schema.
 
 ### Google Maps Polling Location Integration
 
@@ -96,35 +124,50 @@ The Voter Prep Dashboard includes a dedicated "Find Polling Location" component 
 
 - A text input for address entry.
 - A placeholder `<div>` designed to accept a Google Maps embed or the Google Civic Information API.
-- The component is architecturally ready — swapping the placeholder for a live `@react-google-maps/api` embed or a `<iframe>` Google Maps embed requires only an API key and minimal code changes.
+- The component is architecturally ready — swapping the placeholder for a live Google Maps embed requires only an API key.
 
 ### Text-to-Speech Accessibility
 
 The global "Read Aloud" button in the navigation bar uses the browser's native **SpeechSynthesis API**. It selectively reads only elements marked with `data-read-aloud="true"` — targeting headings, descriptions, and instructional text while skipping buttons, labels, and navigation controls.
 
-The language hint is automatically set based on the current i18n selection (`en-US`, `es-ES`, or `hi-IN`).
-
 ---
 
 ## Assumptions Made
 
-1. **Device Speech Synthesis Support**: We assume the user's browser supports the Web Speech API (`SpeechSynthesis`). This is available in all modern browsers (Chrome, Edge, Safari, Firefox). A graceful fallback alert is shown if unsupported.
+1. **Device Speech Synthesis Support**: We assume the user's browser supports the Web Speech API (`SpeechSynthesis`). A graceful fallback alert is shown if unsupported.
 
 2. **Initial Connectivity for Caching**: The Service Worker requires an initial online page load to populate its cache. After the first visit, the app functions fully offline.
 
-3. **Mock Data for ID Requirements**: State-specific ID requirements use hardcoded mock data for California, Texas, and New York. In production, this would be replaced by a live API (e.g., Google Civic Information API).
+3. **Mock Data for ID Requirements**: State-specific ID requirements use hardcoded mock data for California, Texas, and New York. In production, this would be replaced by a live API.
 
-4. **Google Maps API Key**: The polling location map is intentionally a placeholder. A valid Google Maps API key is required to activate the live map embed, which was omitted to avoid key exposure in a public repository.
+4. **Google Maps API Key**: The polling location map is intentionally a placeholder to avoid key exposure in a public repository.
 
-5. **Android TWA for Assistant**: The `shortcuts.xml` file assumes the PWA will be wrapped in a Trusted Web Activity (TWA) for distribution on Android. The deep link URLs map to the PWA's routes and will function as-is when the app is installed via Chrome's "Add to Home Screen".
+5. **Gemini API Key**: The chatbot requires a valid Google Gemini API key in `.env.local`. Without it, the chatbot displays a setup prompt instead of crashing.
 
 ---
 
 ## Getting Started
 
 ```bash
-cd voter-quest
+cd the-elect
 npm install
+```
+
+### Configure the Gemini API Key
+
+1. Get a free API key at [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+2. Copy the example environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
+3. Paste your key into `.env.local`:
+   ```
+   GEMINI_API_KEY=your_actual_key_here
+   ```
+
+### Run the Development Server
+
+```bash
 npm run dev
 ```
 
