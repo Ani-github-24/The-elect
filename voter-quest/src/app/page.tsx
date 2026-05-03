@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { VoterPrepDashboard } from "@/components/VoterPrepDashboard";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -46,6 +47,11 @@ export default function Home() {
             {t.features.feature3_desc}
           </p>
         </div>
+      </section>
+
+      {/* Voter Prep Dashboard Section */}
+      <section className="w-full px-6 flex justify-center pb-24">
+        <VoterPrepDashboard />
       </section>
 
       {/* Footer */}
