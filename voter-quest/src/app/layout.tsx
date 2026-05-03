@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VoterQuest",
+  title: "The Elect",
   description: "Secure, simple, and accessible voting information.",
 };
 

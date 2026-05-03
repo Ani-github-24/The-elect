@@ -1,7 +1,7 @@
 {
   "en": {
     "nav": {
-      "title": "VoterQuest",
+      "title": "The Elect",
       "language": "Language"
     },
     "hero": {
@@ -18,12 +18,12 @@
       "feature3_desc": "Learn about the people on your local ballot."
     },
     "footer": {
-      "text": "© 2026 VoterQuest. All rights reserved."
+      "text": "© 2026 The Elect. All rights reserved."
     }
   },
   "es": {
     "nav": {
-      "title": "VoterQuest",
+      "title": "The Elect",
       "language": "Idioma"
     },
     "hero": {
@@ -40,12 +40,12 @@
       "feature3_desc": "Aprende sobre las personas en tu boleta local."
     },
     "footer": {
-      "text": "© 2026 VoterQuest. Todos los derechos reservados."
+      "text": "© 2026 The Elect. Todos los derechos reservados."
     }
   },
   "hi": {
     "nav": {
-      "title": "वोटरक्वेस्ट",
+      "title": "The Elect",
       "language": "भाषा"
     },
     "hero": {
@@ -62,7 +62,7 @@
       "feature3_desc": "अपने स्थानीय मतपत्र पर लोगों के बारे में जानें।"
     },
     "footer": {
-      "text": "© 2026 वोटरक्वेस्ट. सर्वाधिकार सुरक्षित।"
+      "text": "© 2026 The Elect. सर्वाधिकार सुरक्षित।"
     }
   }
 }

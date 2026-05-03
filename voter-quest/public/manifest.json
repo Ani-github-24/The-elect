@@ -1,6 +1,6 @@
 {
-  "name": "VoterQuest",
-  "short_name": "VoterQuest",
+  "name": "The Elect",
+  "short_name": "The Elect",
   "description": "Secure, simple, and accessible voting information.",
   "start_url": "/",
   "display": "standalone",

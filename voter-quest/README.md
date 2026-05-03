@@ -1,4 +1,4 @@
-# VoterQuest
+# The Elect
 
 A Progressive Web App (PWA) built for **Challenge 2: Election Assistant** — empowering voters with accessible, offline-capable tools for voter preparation, education, and civic engagement.
 
@@ -8,7 +8,7 @@ A Progressive Web App (PWA) built for **Challenge 2: Election Assistant** — em
 
 **Challenge 2 — Election Assistant.**
 
-VoterQuest is an interactive election readiness platform designed to help first-time and underserved voters navigate the voting process with confidence. It provides ID requirement lookup, polling location discovery, a virtual voting simulator, and multilingual accessibility — all within an installable, offline-first Progressive Web App.
+The Elect is an interactive election readiness platform designed to help first-time and underserved voters navigate the voting process with confidence. It provides ID requirement lookup, polling location discovery, a virtual voting simulator, and multilingual accessibility — all within an installable, offline-first Progressive Web App.
 
 ---
 
@@ -16,7 +16,7 @@ VoterQuest is an interactive election readiness platform designed to help first-
 
 ### Architecture
 
-VoterQuest is built on **Next.js (App Router)** with **TypeScript** and **Tailwind CSS**, following a zero-external-dependency state management philosophy.
+The Elect is built on **Next.js (App Router)** with **TypeScript** and **Tailwind CSS**, following a zero-external-dependency state management philosophy.
 
 | Layer                  | Technology                                    |
 | ---------------------- | --------------------------------------------- |
@@ -81,12 +81,12 @@ An interactive range slider representing voter turnout percentage. As the slider
 
 ### Voice Assistant Mapping (Google Assistant)
 
-VoterQuest implements **URL-based deep linking** for Google Assistant voice commands:
+The Elect implements **URL-based deep linking** for Google Assistant voice commands:
 
 | Voice Command                             | Route        | Component              |
 | ----------------------------------------- | ------------ | ---------------------- |
-| "Hey Google, open VoterQuest Simulation"  | `/sim`       | Virtual Voting Sim     |
-| "Hey Google, open VoterQuest ID Check"    | `/id-check`  | Voter Prep Dashboard   |
+| "Hey Google, open The Elect Simulation"   | `/sim`       | Virtual Voting Sim     |
+| "Hey Google, open The Elect ID Check"     | `/id-check`  | Voter Prep Dashboard   |
 
 The intent mapping is defined in `public/shortcuts.xml`, following the Android App Actions `shortcuts.xml` schema. Each shortcut binds a `capability` (`actions.intent.OPEN_APP_FEATURE`) to a specific deep link URL.
 

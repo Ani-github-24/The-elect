@@ -1,4 +1,4 @@
-const CACHE_NAME = 'voterquest-cache-v2';
+const CACHE_NAME = 'the-elect-cache-v2';
 const PRECACHE_URLS = [
   '/',
   '/manifest.json',
