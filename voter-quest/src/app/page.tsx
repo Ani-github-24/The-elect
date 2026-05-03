@@ -2,6 +2,8 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { VoterPrepDashboard } from "@/components/VoterPrepDashboard";
+import { VirtualVotingSim } from "@/components/VirtualVotingSim";
+import { ImpactSlider } from "@/components/ImpactSlider";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -47,6 +49,12 @@ export default function Home() {
             {t.features.feature3_desc}
           </p>
         </div>
+      </section>
+
+      {/* Education Modules */}
+      <section className="w-full px-6 flex flex-col items-center pb-12">
+        <VirtualVotingSim />
+        <ImpactSlider />
       </section>
 
       {/* Voter Prep Dashboard Section */}
