@@ -1,0 +1,68 @@
+{
+  "en": {
+    "nav": {
+      "title": "VoterQuest",
+      "language": "Language"
+    },
+    "hero": {
+      "title": "Make Your Voice Heard",
+      "subtitle": "Discover everything you need to know about voting in your area. Secure, simple, and accessible.",
+      "cta": "Start Your Quest"
+    },
+    "features": {
+      "feature1_title": "Check Registration",
+      "feature1_desc": "Verify your voter registration status in seconds.",
+      "feature2_title": "Find Polling Place",
+      "feature2_desc": "Locate your nearest polling station easily.",
+      "feature3_title": "Know the Candidates",
+      "feature3_desc": "Learn about the people on your local ballot."
+    },
+    "footer": {
+      "text": "© 2026 VoterQuest. All rights reserved."
+    }
+  },
+  "es": {
+    "nav": {
+      "title": "VoterQuest",
+      "language": "Idioma"
+    },
+    "hero": {
+      "title": "Haz Que Tu Voz Se Escuche",
+      "subtitle": "Descubre todo lo que necesitas saber sobre cómo votar en tu área. Seguro, simple y accesible.",
+      "cta": "Comienza Tu Búsqueda"
+    },
+    "features": {
+      "feature1_title": "Verificar Registro",
+      "feature1_desc": "Verifica el estado de tu registro de votante en segundos.",
+      "feature2_title": "Encontrar Centro de Votación",
+      "feature2_desc": "Localiza tu centro de votación más cercano fácilmente.",
+      "feature3_title": "Conocer a los Candidatos",
+      "feature3_desc": "Aprende sobre las personas en tu boleta local."
+    },
+    "footer": {
+      "text": "© 2026 VoterQuest. Todos los derechos reservados."
+    }
+  },
+  "hi": {
+    "nav": {
+      "title": "वोटरक्वेस्ट",
+      "language": "भाषा"
+    },
+    "hero": {
+      "title": "अपनी आवाज़ उठाएं",
+      "subtitle": "अपने क्षेत्र में मतदान के बारे में जानने के लिए आवश्यक सब कुछ खोजें। सुरक्षित, सरल और सुलभ।",
+      "cta": "अपनी खोज शुरू करें"
+    },
+    "features": {
+      "feature1_title": "पंजीकरण जांचें",
+      "feature1_desc": "सेकंड में अपने मतदाता पंजीकरण की स्थिति सत्यापित करें।",
+      "feature2_title": "मतदान केंद्र खोजें",
+      "feature2_desc": "आसानी से अपने निकटतम मतदान केंद्र का पता लगाएं।",
+      "feature3_title": "उम्मीदवारों को जानें",
+      "feature3_desc": "अपने स्थानीय मतपत्र पर लोगों के बारे में जानें।"
+    },
+    "footer": {
+      "text": "© 2026 वोटरक्वेस्ट. सर्वाधिकार सुरक्षित।"
+    }
+  }
+}
