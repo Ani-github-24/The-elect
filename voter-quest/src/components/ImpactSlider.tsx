@@ -22,10 +22,10 @@ export function ImpactSlider() {
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-6 bg-[#000000] border-4 border-[#0000FF] mb-12">
       <div className="text-center mb-8 focus:outline-none" tabIndex={0}>
-        <h2 className="text-4xl font-extrabold mb-4 text-[#FFFF00] uppercase">
+        <h2 className="text-4xl font-extrabold mb-4 text-[#FFFF00] uppercase" data-read-aloud="true">
           The Power of One
         </h2>
-        <p className="text-xl text-white font-bold">
+        <p className="text-xl text-white font-bold" data-read-aloud="true">
           See how a small shift in voter turnout dramatically changes local election margins.
         </p>
       </div>

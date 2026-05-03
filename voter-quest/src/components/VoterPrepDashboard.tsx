@@ -54,14 +54,14 @@ export function VoterPrepDashboard() {
 
   return (
     <div className="w-full max-w-7xl mx-auto py-12 px-6 bg-[#000000] border-4 border-[#FFFF00] my-12">
-      <h2 className="text-4xl font-extrabold mb-8 text-[#FFFF00] uppercase border-b-4 border-white pb-4">
+      <h2 className="text-4xl font-extrabold mb-8 text-[#FFFF00] uppercase border-b-4 border-white pb-4" data-read-aloud="true">
         Voter Prep Dashboard
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Left Column: ID Requirements */}
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-white uppercase">State ID Requirements</h3>
+          <h3 className="text-2xl font-bold text-white uppercase" data-read-aloud="true">State ID Requirements</h3>
           <div>
             <label htmlFor="state-select" className="block text-xl font-bold text-[#FFFF00] mb-2">
               Select Your State/Region
@@ -103,7 +103,7 @@ export function VoterPrepDashboard() {
 
         {/* Right Column: Polling Location */}
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-white uppercase">Find Polling Location</h3>
+          <h3 className="text-2xl font-bold text-white uppercase" data-read-aloud="true">Find Polling Location</h3>
           <div>
             <label htmlFor="address-input" className="block text-xl font-bold text-[#FFFF00] mb-2">
               Enter Mock Address

@@ -37,7 +37,7 @@ export function VirtualVotingSim() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-6 bg-black border-4 border-white mb-12">
-      <h2 className="text-4xl font-extrabold mb-8 text-[#FFFF00] uppercase border-b-4 border-white pb-4" tabIndex={0}>
+      <h2 className="text-4xl font-extrabold mb-8 text-[#FFFF00] uppercase border-b-4 border-white pb-4" tabIndex={0} data-read-aloud="true">
         Virtual Voting Simulator
       </h2>
 
@@ -45,7 +45,7 @@ export function VirtualVotingSim() {
         <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
           {step === 1 && (
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white uppercase mb-6" tabIndex={0}>Step 1: Select Your Candidate</h3>
+              <h3 className="text-2xl font-bold text-white uppercase mb-6" tabIndex={0} data-read-aloud="true">Step 1: Select Your Candidate</h3>
               <div className="space-y-4">
                 {CandidateOptions.map((cand) => (
                   <label
@@ -71,7 +71,7 @@ export function VirtualVotingSim() {
 
           {step === 2 && (
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white uppercase mb-6 flex items-center gap-2" tabIndex={0}>
+              <h3 className="text-2xl font-bold text-white uppercase mb-6 flex items-center gap-2" tabIndex={0} data-read-aloud="true">
                 Step 2: City Measure
                 <span
                   className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FFFF00] text-black font-black text-xl cursor-help relative group"
@@ -80,7 +80,7 @@ export function VirtualVotingSim() {
                 >
                   ?
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block group-focus:block bg-white text-black p-4 w-64 border-4 border-black text-sm z-10 shadow-xl">
-                    <p className="font-bold">A "Measure" is a proposed law or policy that citizens vote on directly.</p>
+                    <p className="font-bold" data-read-aloud="true">A "Measure" is a proposed law or policy that citizens vote on directly.</p>
                   </div>
                 </span>
               </h3>
@@ -121,7 +121,7 @@ export function VirtualVotingSim() {
 
           {step === 3 && (
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white uppercase mb-6" tabIndex={0}>Step 3: Review & Submit</h3>
+              <h3 className="text-2xl font-bold text-white uppercase mb-6" tabIndex={0} data-read-aloud="true">Step 3: Review & Submit</h3>
               <div className="bg-white text-black p-6 border-4 border-black space-y-4 font-bold text-xl">
                 <div>
                   <span className="text-gray-600 uppercase text-sm block">Selected Candidate:</span>

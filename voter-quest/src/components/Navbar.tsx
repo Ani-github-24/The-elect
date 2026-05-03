@@ -28,22 +28,29 @@ export function Navbar() {
       return;
     }
 
-    const mainElement = document.querySelector("main");
-    if (mainElement) {
-      const textToRead = mainElement.innerText;
-      const utterance = new SpeechSynthesisUtterance(textToRead);
-      
-      // Set language hint based on current selected language
-      if (language === "es") utterance.lang = "es-ES";
-      else if (language === "hi") utterance.lang = "hi-IN";
-      else utterance.lang = "en-US";
-
-      utterance.onend = () => setIsReading(false);
-      utterance.onerror = () => setIsReading(false);
-      
-      setIsReading(true);
-      window.speechSynthesis.speak(utterance);
+    const readableElements = document.querySelectorAll('[data-read-aloud="true"]');
+    if (readableElements.length === 0) {
+      alert("No readable content found on this page.");
+      return;
     }
+
+    const textToRead = Array.from(readableElements)
+      .map((el) => (el as HTMLElement).textContent?.trim())
+      .filter(Boolean)
+      .join(". ");
+
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    
+    // Set language hint based on current selected language
+    if (language === "es") utterance.lang = "es-ES";
+    else if (language === "hi") utterance.lang = "hi-IN";
+    else utterance.lang = "en-US";
+
+    utterance.onend = () => setIsReading(false);
+    utterance.onerror = () => setIsReading(false);
+    
+    setIsReading(true);
+    window.speechSynthesis.speak(utterance);
   };
 
   return (

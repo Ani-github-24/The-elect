@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <!-- Deep link: "Hey Google, open VoterQuest Simulation" -->
+  <capability android:name="actions.intent.OPEN_APP_FEATURE">
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:targetPackage="com.voterquest.app"
+      android:targetClass="com.voterquest.app.MainActivity">
+      <parameter android:name="feature" android:key="feature" />
+    </intent>
+  </capability>
+
+  <!-- Shortcut: Voting Simulator -->
+  <shortcut
+    android:shortcutId="sim"
+    android:shortcutShortLabel="Voting Sim"
+    android:shortcutLongLabel="Open VoterQuest Simulation">
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:data="https://voterquest.app/sim" />
+    <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+      <parameter-binding
+        android:key="feature"
+        android:value="Simulation" />
+    </capability-binding>
+  </shortcut>
+
+  <!-- Shortcut: ID Check Dashboard -->
+  <shortcut
+    android:shortcutId="id-check"
+    android:shortcutShortLabel="ID Check"
+    android:shortcutLongLabel="Open VoterQuest ID Requirements">
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:data="https://voterquest.app/id-check" />
+    <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+      <parameter-binding
+        android:key="feature"
+        android:value="ID Check" />
+    </capability-binding>
+  </shortcut>
+
+</shortcuts>
